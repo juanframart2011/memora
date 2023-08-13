@@ -1,4 +1,3 @@
-
 class Memorama {
     
     constructor() {
@@ -11,9 +10,14 @@ class Memorama {
         this.maxPairNumber = this.availableImages.length;
         this.startGame();
         
+        this.aciertos = 0;
+        this.ms = "00";
+        this.sec = "00";
+        this.min = "00";
+        this.mostrarAciertos = document.getElementById('aciertos');
+        this.startTimerRenew;
+        this.stopBtn = document.querySelector(".stop");
     }
-
-
 
     startGame() {
         this.foundPairs = 0;
@@ -52,12 +56,11 @@ class Memorama {
 
     addClickEvents() {
         this.cards.forEach(_this => _this.addEventListener("click", this.flipCard.bind(this)));
-        start();
+        this.start();
     }
 
     removeClickEvents() {
         this.cards.forEach(_this => _this.removeEventListener("click", this.flipCard));
-        
     }
 
     flipCard(e) {
@@ -75,15 +78,14 @@ class Memorama {
             if (this.card1 == this.card2) {
                 this.canPlay = false;
                 setTimeout(this.checkIfWon.bind(this), 300)   
-                aciertos++;
-                mostrarAciertos.innerHTML = `Aciertos: ${aciertos}`; 
+                this.aciertos++;
+                this.mostrarAciertos.innerHTML = `Aciertos: ${this.aciertos}`; 
             }
             else {
                 this.canPlay = false;
                 setTimeout(this.resetOpenedCards.bind(this), 600)
             }
-          }
-          
+        }          
     }
 
     resetOpenedCards() { 
@@ -113,113 +115,60 @@ class Memorama {
         setTimeout(this.startGame.bind(this), 1000);
     }
 
+    start(){
+        console.log( "inciamos" );
+
+        this.min = this.sec = this.ms = '0' + 0, this.startTimer(0);        
+    }
+
+    startTimer(end){
+
+        this.startTimerRenew = setInterval(()=>{
+
+            this.ms++;
+            this.ms = this.ms < 10 ? "0" + this.ms : this.ms;
+
+            if(this.ms == 100){
+                this.sec++;
+                this.sec = this.sec < 10 ? "0" + this.sec : this.sec;
+                this.ms = "0" + 0;
+            }
+            if(this.sec == 60){
+                this.min++;
+                this.min = this.min < 10 ? "0" + this.min : this.min;
+                this.sec = "0" + 0;                
+            }
+
+            if (this.min == 1){
+                clearInterval(this.startTimerRenew);
+                alert( "Se acabo el tiempo, tuviste " + this.aciertos + " aciertos" );
+                window.location.reload();
+            }
+            
+            this.putValue();
+        },10);
+    }
+
+    stop(){
+        clearInterval(this.startTimerRenew);
+    }
+
+    putValue(){
+        document.querySelector('.millisecond').innerHTML = this.ms;
+        document.querySelector('.second').innerHTML = this.sec;
+        document.querySelector('.minute').innerHTML = this.min;
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    new Memorama();
-
+    //new Memorama();
+    $this = new Memorama();
 });
 
-
-
-
-
-
-
-
-
-let min = sec = ms = '0' + 0, startTimer;
-let aciertos = 0;
-let mostrarAciertos = document.getElementById('aciertos');
-/*let tiempoRegresivoId = null;
-let timer = 30;
-let tiempoInicial = 30;*/
-
-const startBtn = document.querySelector(".start"),
-    stopBtn = document.querySelector(".stop"),
-    resetBtn = document.querySelector(".reset");
-
-    /*startBtn.addEventListener("click", start);*/
-    stopBtn.addEventListener("click", stop);
-    /*resetBtn.addEventListener("click", reset);*/
-
-    function start(){
-       /* startBtn.classList.add("active");*/
-        stopBtn.classList.remove("stopActive");
-        
-      
-
-        startTimer = setInterval(()=>{
-            ms++;
-            ms = ms < 10 ? "0" + ms : ms;
-
-            if(ms == 100){
-                sec++;
-                sec = sec < 10 ? "0" + sec : sec;
-                ms = "0" + 0;
-            }
-            if(sec == 60){
-                min++;
-                min = min < 10 ? "0" + min : min;
-                sec = "0" + 0;
-                
-            }
-            if (min == 1){
-                clearInterval(startTimer);
-                alert("se acabo el tiempo");
-            }
-            
-            putValue();
-        },10);
-    }
-
-   function stop(){
-        /*startBtn.classList.remove("active");*/
-        stopBtn.classList.remove("stopActive");
-        clearInterval(startTimer);
-   } 
-
-   let refresh = document.getElementById('refresh');
-   refresh.addEventListener('click', _ => {
-               location.reload();
-   })
-
-   function reset(){
-    startBtn.classList.remove("active");
-    stopBtn.classList.remove("stopActive");
-    clearInterval(startTimer);
-    min = sec = ms = "0" + 0;
-
-
+function stop(){
+    console.info( "stop()" );
+    document.querySelector(".stop").classList.remove("stopActive");
     
-  
-    putValue();
-   }
-
-   function putValue(){
-    document.querySelector('.millisecond').innerHTML = ms;
-    document.querySelector('.second').innerHTML = sec;
-    document.querySelector('.minute').innerHTML = min;
-   }
-
-   
-
-
-
-
-
-
-
-
-/*function contarTiempo(){
-    tiempoRegresivoId = setInterval(()=>{
-        timer--;
-        mostrarTiempo.innerHTML = `tiempo: ${timer}segundos` 
-    })
-}*/
-
-
-
-
-
+    $this.stop();
+}
