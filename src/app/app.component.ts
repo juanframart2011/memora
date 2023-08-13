@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -11,23 +12,191 @@ export class AppComponent {
 	card1 = null;
 	card2 = null;
 	availableImages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-	orderForThisRound = null;
-	cards = [];
-	maxPairNumber = 0;
+	orderForThisRound:any[] = [];
+	maxPairNumber = this.availableImages.length;
 	foundPairs = 0;
-	sec = "";
+	sec = 0;
 	ms = 0;
-	min = "";
+	min = 0;
 	aciertos = 0;
+	cards: HTMLImageElement[] = [];
+	mostrarAciertos: string = 'Aciertos: 0';
+	startTimerRenew:any;
+	stopBtn:any;
+	millisecond:string = "00";
+	second:string = "00";
+    minute:string = "00";
 
-	constructor(){}
+	constructor(
+		private alertController: AlertController
+	){}
+
+	ngOnInit() {
+		
+		this.cards = Array.from(document.querySelectorAll(".board-game figure"));
+		this._startGame();
+	}
+
+	_startGame() {
+        this.setNewOrder();
+        this.setImagesInCards();
+        this.openCards();
+    }
+
+	async _presentAlert( title:string, subtitle:string, message:string){
+		const alert = await this.alertController.create({
+		  header: title,
+		  subHeader: subtitle,
+		  message: message,
+		  buttons: [
+			{
+				text: 'OK',
+				handler: () => {
+				  window.location.reload();
+				}
+			}
+		  ],
+		  backdropDismiss: false
+		});
+	  
+		await alert.present();
+	}
 
 	refresh(){
-
 		window.location.reload();
 	}
 
-	stop(){
-		//clearInterval(startTimerRenew);
-	}
+	setNewOrder() {
+        this.orderForThisRound = this.availableImages.concat(this.availableImages);
+        this.orderForThisRound.sort( () => Math.random() - 0.5 );
+    }
+	
+    setImagesInCards() {
+		
+		for (var key in this.cards) {     
+            var card: HTMLImageElement = this.cards[key];
+            var image = this.orderForThisRound[key];
+            var imgLabel:any = card.children[1].children[0];
+			//console.info( "card => ", card, " image => ", image, " imgLabel => ", imgLabel );
+			card['dataset']['image'] = image;
+            imgLabel['src'] = `assets/images/${image}.png`;
+        }
+    }
+
+    openCards() {
+        this.cards.forEach(card => card.classList.add("opened"));
+        setTimeout(() => {
+            this.closeCards();
+        }, 3500);
+    }
+
+    closeCards() {
+        this.cards.forEach(card => card.classList.remove("opened"));
+        this.addClickEvents();
+        this.canPlay = true;
+    }
+
+    addClickEvents() {
+        //this.cards.forEach(_this => _this.addEventListener("click", this.flipCard.bind(this)));
+        this.start();
+    }
+
+    flipCard(e:any) {
+        var clickedCard = e.target;
+        if (this.canPlay && !clickedCard.classList.contains("opened")) {   
+            clickedCard.classList.add("opened");
+            this.checkPair( clickedCard['dataset']['image'] );
+        }
+    }
+
+    checkPair(image:any) {
+		//console.info( "image => ", image );
+        if (!this.card1) this.card1 = image;
+        else this.card2 = image;
+		console.info( "Image => ", image, "card1 => ", this.card1, " -- card2 => ", this.card2 );
+        if (this.card1 && this.card2) {
+            if (this.card1 == this.card2) {
+                this.canPlay = false;
+                setTimeout(this.checkIfWon.bind(this), 300)   
+                this.aciertos++;
+                this.mostrarAciertos = `Aciertos: ${this.aciertos}`;
+				console.info( "ja" );
+            }
+            else {
+                this.canPlay = false;
+				console.info( "jo" );
+                setTimeout(this.resetOpenedCards.bind(this), 600)
+            }
+        }          
+    }
+
+    resetOpenedCards() { 
+        var firstOpened = document.querySelector(`.board-game figure.opened[data-image='${this.card1}']`);
+        var secondOpened = document.querySelector(`.board-game figure.opened[data-image='${this.card2}']`);
+        firstOpened?.classList.remove("opened");
+        secondOpened?.classList.remove("opened");
+        this.card1 = null;
+        this.card2 = null;
+        this.canPlay = true;
+    }
+
+    checkIfWon() {
+        this.foundPairs++;
+        this.card1 = null;
+        this.card2 = null;
+        this.canPlay = true;
+        if (this.maxPairNumber == this.foundPairs) {
+            this._presentAlert( "¡Ganaste!", "", "Felicidades, ganaste" );
+            this.setNewGame();          
+        }
+    }
+
+    setNewGame() {
+        setTimeout(function() {
+			window.location.reload();
+		}, 1000);
+    }
+
+    start(){
+        console.log( "inciamos" );
+
+        this.startTimer();        
+    }
+
+    startTimer(){
+
+        this.startTimerRenew = setInterval(()=>{
+
+            this.ms++;
+            this.ms = this.ms < 10 ? this.ms : this.ms;
+
+            if(this.ms == 100){
+                this.sec++;
+                this.sec = this.sec < 10 ? this.sec : this.sec;
+                this.ms = 0;
+            }
+            if(this.sec == 60){
+                this.min++;
+                this.min = this.min < 10 ? this.min : this.min;
+                this.sec = 0;                
+            }
+
+            if (this.min == 1){
+                clearInterval(this.startTimerRenew);
+				this._presentAlert( "Se acabo el tiempo", "", "tuviste " + this.aciertos + " aciertos" );
+            }
+            
+            this.putValue();
+        },10);
+    }
+
+    stop(){
+		clearInterval(this.startTimerRenew);
+    }
+
+    putValue(){
+        this.millisecond = this.ms < 10 ? "0" + this.ms.toString() : this.ms.toString();
+        this.second = this.sec < 10 ? "0" + this.sec.toString() : this.sec.toString();
+        this.minute = this.min < 10 ? "0" + this.min.toString() : this.min.toString();
+    }
 }
