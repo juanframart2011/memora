@@ -1,0 +1,7 @@
+{
+  "name": "memorama-dummy",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
