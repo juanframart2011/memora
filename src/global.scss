@@ -1,8 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
-    
+    font-family: 'Montserrat', sans-serif;    
 }
 
 body {
@@ -10,10 +9,6 @@ body {
     background: #B53A3A;
     background: linear-gradient(0deg, rgba(255,255,255,1) 10%, #f7e2e2 50%);
     background-repeat: no-repeat;
-     
-    /*background-image: url(/images/background.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;*/
 }
 
 h1 {
@@ -111,15 +106,6 @@ figure .searched-image {
 }
 
 button {
-    /*background-color: rgb(50, 75, 82); 
-    border-radius: 5px;
-    font-size: 14px;
-    padding: 2px 10px;
-    color: rgb(2, 17, 100);
-    border-color: rgb(2, 39, 143);
-    text-align: center;
-    display: inline-block;
-    cursor: pointer;*/
 
   background: #A60303;
   border: 1px solid #A60303;
@@ -166,33 +152,3 @@ button {
 .refresh:active {
   opacity: .5;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*.start:hover{
-    box-shadow: 0 0 2px 2px rgb(236, 10, 10);
-}*/
-
-
-
-/*.stop:hover{
-    box-shadow: 0 0 2px 2px rgb(236, 10, 10);
-}
-.refresh:hover{
-    box-shadow: 0 0 2px 2px rgb(236, 10, 10);
-}*/
-
-
-
