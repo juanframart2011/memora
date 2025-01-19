@@ -1,188 +1,189 @@
-<h1>¿Listo para jugar?</h1>
+<ion-content>
+    <h1>¿Listo para jugar?</h1>
     
-<div class="wrapper">
-    <div class="time">
-        <span class="minute">{{ minute }}</span>
-        <span class="colon">:</span>
-        <span class="second">{{ second }}</span>
-        <span class="colon ms-colon">:</span>
-        <span class="millisecond">{{ millisecond }}</span>  
+    <div class="wrapper">
+        <div class="time">
+            <span class="minute">{{ minute }}</span>
+            <span class="colon">:</span>
+            <span class="second">{{ second }}</span>
+            <span class="colon ms-colon">:</span>
+            <span class="millisecond">{{ millisecond }}</span>  
+        </div>
+        <div class="buttons">
+            <button (click)="stop()" class="stop">Detener</button>
+            <button class="refresh" (click)="refresh()" id="refresh">Iniciar Juego</button>            
+            <h2 id="aciertos">{{ mostrarAciertos }}</h2>   
+        </div>   
     </div>
-    <div class="buttons">
-        <button (click)="stop()" class="stop">Detener</button>
-        <button class="refresh" (click)="refresh()" id="refresh">Iniciar Juego</button>
+
+    <main class="board-game">
+       
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/1.png" >
+            </div>
+        </figure>
+
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/2.png" alt="Back">
+            </div>
+        </figure>
+
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/3.png" alt="Back">
+            </div>
+        </figure>
+
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/4.png" alt="Back">
+            </div>
+        </figure>
+
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/5.png" alt="Back">
+            </div>
+        </figure>
         
-        <h2 id="aciertos">{{ mostrarAciertos }}</h2>   
-    </div>   
-</div>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/6.png" alt="Back">
+            </div>
+        </figure>
 
-<main class="board-game">
-    
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/1.png" >
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/7.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/2.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/8.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/3.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/9.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/4.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/10.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/5.png" alt="Back">
-        </div>
-    </figure>
-    
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/6.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/11.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/7.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/12.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/8.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/1.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/9.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/2.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/10.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/3.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/11.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/4.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/12.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/5.png" alt="Back">
+            </div>
+        </figure>
+        
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/6.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/1.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/7.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/2.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/8.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/3.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/9.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/4.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/10.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/5.png" alt="Back">
-        </div>
-    </figure>
-    
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/6.png" alt="Back">
-        </div>
-    </figure>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/11.png" alt="Back">
+            </div>
+        </figure>
 
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/7.png" alt="Back">
-        </div>
-    </figure>
-
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/8.png" alt="Back">
-        </div>
-    </figure>
-
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/9.png" alt="Back">
-        </div>
-    </figure>
-
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/10.png" alt="Back">
-        </div>
-    </figure>
-
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/11.png" alt="Back">
-        </div>
-    </figure>
-
-    <figure (click)="flipCard($event)">
-        <img class="back" src="assets/images/back.png" alt="Back">
-        <div class="searched-image">
-            <img src="assets/images/12.png" alt="Back">
-        </div>
-    </figure>    
-</main>
+        <figure (click)="flipCard($event)">
+            <img class="back" src="assets/images/back.png" alt="Back">
+            <div class="searched-image">
+                <img src="assets/images/12.png" alt="Back">
+            </div>
+        </figure>    
+    </main>
+</ion-content>
