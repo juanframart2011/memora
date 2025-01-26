@@ -11,7 +11,7 @@ export class AppComponent {
 	canPlay = false;
 	card1 = null;
 	card2 = null;
-	availableImages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+	availableImages = [1, 2, 3, 4, 5, 6];
 	orderForThisRound:any[] = [];
 	maxPairNumber = this.availableImages.length;
 	foundPairs = 0;
@@ -20,7 +20,7 @@ export class AppComponent {
 	min = 0;
 	aciertos = 0;
 	cards: HTMLImageElement[] = [];
-	mostrarAciertos: string = 'Aciertos: 0';
+	mostrarAciertos: string = '0';
 	startTimerRenew:any;
 	stopBtn:any;
 	millisecond:string = "00";
@@ -39,13 +39,7 @@ export class AppComponent {
             'assets/images/3.png',
             'assets/images/4.png',
             'assets/images/5.png',
-            'assets/images/6.png',
-            'assets/images/7.png',
-            'assets/images/8.png',
-            'assets/images/9.png',
-            'assets/images/10.png',
-            'assets/images/11.png',
-            'assets/images/12.png'
+            'assets/images/6.png'
         ];
 
         // Crear dos copias de cada carta y mezclarlas
@@ -147,7 +141,7 @@ export class AppComponent {
                 this.canPlay = false;
                 setTimeout(this.checkIfWon.bind(this), 300)   
                 this.aciertos++;
-                this.mostrarAciertos = `Aciertos: ${this.aciertos}`;
+                this.mostrarAciertos = `${this.aciertos}`;
 				console.info( "ja" );
             }
             else {

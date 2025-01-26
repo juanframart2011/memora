@@ -1,39 +1,28 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  html, body, ion-app, ion-content {
-    height: 100%;
-    width: 100%;
-    overflow: hidden; /* Evita scroll */
-  }
-  
-  body {
-    background: linear-gradient(0deg, rgba(255,255,255,1) 10%, #f7e2e2 50%);
-  }
-  
-  /* Header styles */
-h1 {
-    text-align: center;
-    font-size: 2rem;
-    margin: 1rem;
-    color: #ff0000;
-    text-shadow: 2px 2px 5px rgb(255, 255, 255);
-    font-weight: 800;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+html, body, ion-app, ion-content {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  background: linear-gradient(0deg, rgba(255,255,255,1) 10%, #f7e2e2 50%);
 }
 
 h2 {
-    font-size: 27px;
+    font-size: 1rem;
     font-weight: 900;
     text-align: center;
-    /*margin: 1rem;*/
     color: #ffffff;
     text-shadow: 2px 2px 5px rgb(0, 0, 0);  
     background: #b6b3b3; 
-    padding: 10px; 
+    padding: 5px;
     border-radius: 35px 0px 35px 0px; 
     -moz-border-radius: 35px 0px 35px 0px; 
     -webkit-border-radius: 35px 0px 35px 0px; 
@@ -49,17 +38,16 @@ h2 {
     width: 100%;  
 }
 .time {
-    font-size: 1.5rem;
     color: #444;
-    margin-bottom: 10px;
+    margin-bottom: 2px;
 }
 
 main {
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(8, 1fr);
-    max-width: 1500px;
-    margin: auto;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(6, auto); /* Cambia 1fr por auto */
+  max-width: 1500px;
+  margin: auto;
 }
 
 figure,
@@ -69,12 +57,14 @@ figure img {
 }
 
 figure {
-    position: relative;
-    transition: all ease .5s;
-    transform-style: preserve-3d;
-    transform: perspective(600px) rotateY(0deg);
-    cursor: pointer;
-    box-shadow: 3px 3px 16px rgb(0, 0, 0, 0.6);
+  width: 100px;
+  height: auto;
+  position: relative;
+  transition: all ease .5s;
+  transform-style: preserve-3d;
+  transform: perspective(600px) rotateY(0deg);
+  cursor: pointer;
+  box-shadow: 3px 3px 16px rgb(0, 0, 0, 0.6);
 }
 
 figure::after {
@@ -162,28 +152,16 @@ button {
 
 
 
-
-
-
-
-
-
-
-
-
-
-/*.start:hover{
-    box-shadow: 0 0 2px 2px rgb(236, 10, 10);
-}*/
-
-
-
-/*.stop:hover{
-    box-shadow: 0 0 2px 2px rgb(236, 10, 10);
+.custom-grid {
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: 2fr 1fr;
+  max-width: 1200px;
+  margin: auto;
 }
-.refresh:hover{
-    box-shadow: 0 0 2px 2px rgb(236, 10, 10);
-}*/
 
-
-
+.data-title{
+  font-size: 1.17em;
+  font-weight: bold;
+  unicode-bidi: isolate;
+}
