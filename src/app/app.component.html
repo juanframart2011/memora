@@ -2,10 +2,9 @@
 
     <ion-grid>
         
-        <ion-row class="ion-justify-content-center ion-align-items-center">
-            <ion-col size="4" class="ion-text-center"></ion-col>
-            <ion-col size="4" class="ion-text-center">
-                <img src="assets/images/logo.jpg" alt="Centered Image" style="width: 100%; height: auto;">
+        <ion-row class="custom-grid-head ion-justify-content-center ion-align-items-center">
+            <ion-col class="ion-text-center">
+                <img src="assets/images/logo.jpg" alt="Centered Image" style="width: 100%; height: 10em;">
             </ion-col>
         </ion-row>
 
@@ -26,103 +25,130 @@
                 </div>
             </ion-col>
         </ion-row>
-    </ion-grid>
     
-    <div class="wrapper">
-        
-        <div class="buttons">
-            <button (click)="stop()" class="stop">Detener</button>
-            <button class="refresh" (click)="refresh()" id="refresh">Iniciar Juego</button>
-        </div>   
-    </div>
+        <ion-row class="custom-grid ion-justify-content-center ion-align-items-center">
+            <ion-col style="text-align:center;">
+                <button (click)="stop()" class="stop">Detener</button>
+            </ion-col>
+            <ion-col style="text-align:center;">
+                <button class="refresh" (click)="refresh()" id="refresh">Iniciar Juego</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 
     <br>
 
-    <main class="board-game">
-       
-        <figure (click)="flipCard($event)">
-            <img class="back" src="assets/images/back.png" alt="Back">
-            <div class="searched-image">
-                <img src="assets/images/1.png" >
-            </div>
-        </figure>
+    <ion-grid>
+        <ion-row class="ion-justify-content-center ion-align-items-center board-game main">
+            <ion-col style="text-align:center;">
+                <figure (click)="flipCard($event)">
+                    <img class="back" src="assets/images/back.png" alt="Back">
+                    <div class="searched-image">
+                        <img src="assets/images/1.png" >
+                    </div>
+                </figure>
+            </ion-col>
+            
+            <ion-col style="text-align:center;">
+                <figure (click)="flipCard($event)">
+                    <img class="back" src="assets/images/back.png" alt="Back">
+                    <div class="searched-image">
+                        <img src="assets/images/2.png" alt="Back">
+                    </div>
+                </figure>
+            </ion-col>
+            
+            <ion-col style="text-align:center;">
+                <figure (click)="flipCard($event)">
+                    <img class="back" src="assets/images/back.png" alt="Back">
+                    <div class="searched-image">
+                        <img src="assets/images/3.png" alt="Back">
+                    </div>
+                </figure>
+            </ion-col>
+            
+            <ion-col style="text-align:center;">
+                <figure (click)="flipCard($event)">
+                    <img class="back" src="assets/images/back.png" alt="Back">
+                    <div class="searched-image">
+                        <img src="assets/images/4.png" alt="Back">
+                    </div>
+                </figure>
+            </ion-col>
+            
+            <ion-col style="text-align:center;">
+                <figure (click)="flipCard($event)">
+                    <img class="back" src="assets/images/back.png" alt="Back">
+                    <div class="searched-image">
+                        <img src="assets/images/5.png" alt="Back">
+                    </div>
+                </figure>
+            </ion-col>
+            
+            <ion-col style="text-align:center;">
+                <figure (click)="flipCard($event)">
+                    <img class="back" src="assets/images/back.png" alt="Back">
+                    <div class="searched-image">
+                        <img src="assets/images/6.png" alt="Back">
+                    </div>
+                </figure>
+            </ion-col>
+            
+            <!-- Vuelta -->
 
-        <figure (click)="flipCard($event)">
-            <img class="back" src="assets/images/back.png" alt="Back">
-            <div class="searched-image">
-                <img src="assets/images/2.png" alt="Back">
-            </div>
-        </figure>
-
-        <figure (click)="flipCard($event)">
-            <img class="back" src="assets/images/back.png" alt="Back">
-            <div class="searched-image">
-                <img src="assets/images/3.png" alt="Back">
-            </div>
-        </figure>
-
-        <figure (click)="flipCard($event)">
-            <img class="back" src="assets/images/back.png" alt="Back">
-            <div class="searched-image">
-                <img src="assets/images/4.png" alt="Back">
-            </div>
-        </figure>
-
-        <figure (click)="flipCard($event)">
-            <img class="back" src="assets/images/back.png" alt="Back">
-            <div class="searched-image">
-                <img src="assets/images/5.png" alt="Back">
-            </div>
-        </figure>
-        
-        <figure (click)="flipCard($event)">
-            <img class="back" src="assets/images/back.png" alt="Back">
-            <div class="searched-image">
-                <img src="assets/images/6.png" alt="Back">
-            </div>
-        </figure>
-
-        <!-- Vuelta -->
-        <figure (click)="flipCard($event)">
-            <img class="back" src="assets/images/back.png" alt="Back">
-            <div class="searched-image">
-                <img src="assets/images/1.png" >
-            </div>
-        </figure>
-
-        <figure (click)="flipCard($event)">
-            <img class="back" src="assets/images/back.png" alt="Back">
-            <div class="searched-image">
-                <img src="assets/images/2.png" alt="Back">
-            </div>
-        </figure>
-
-        <figure (click)="flipCard($event)">
-            <img class="back" src="assets/images/back.png" alt="Back">
-            <div class="searched-image">
-                <img src="assets/images/3.png" alt="Back">
-            </div>
-        </figure>
-
-        <figure (click)="flipCard($event)">
-            <img class="back" src="assets/images/back.png" alt="Back">
-            <div class="searched-image">
-                <img src="assets/images/4.png" alt="Back">
-            </div>
-        </figure>
-
-        <figure (click)="flipCard($event)">
-            <img class="back" src="assets/images/back.png" alt="Back">
-            <div class="searched-image">
-                <img src="assets/images/5.png" alt="Back">
-            </div>
-        </figure>
-        
-        <figure (click)="flipCard($event)">
-            <img class="back" src="assets/images/back.png" alt="Back">
-            <div class="searched-image">
-                <img src="assets/images/6.png" alt="Back">
-            </div>
-        </figure>
-    </main>
+            <ion-col style="text-align:center;">
+                <figure (click)="flipCard($event)">
+                    <img class="back" src="assets/images/back.png" alt="Back">
+                    <div class="searched-image">
+                        <img src="assets/images/1.png" >
+                    </div>
+                </figure>
+            </ion-col>
+            
+            <ion-col style="text-align:center;">
+                <figure (click)="flipCard($event)">
+                    <img class="back" src="assets/images/back.png" alt="Back">
+                    <div class="searched-image">
+                        <img src="assets/images/2.png" alt="Back">
+                    </div>
+                </figure>
+            </ion-col>
+            
+            <ion-col style="text-align:center;">
+                <figure (click)="flipCard($event)">
+                    <img class="back" src="assets/images/back.png" alt="Back">
+                    <div class="searched-image">
+                        <img src="assets/images/3.png" alt="Back">
+                    </div>
+                </figure>
+            </ion-col>
+            
+            <ion-col style="text-align:center;">
+                <figure (click)="flipCard($event)">
+                    <img class="back" src="assets/images/back.png" alt="Back">
+                    <div class="searched-image">
+                        <img src="assets/images/4.png" alt="Back">
+                    </div>
+                </figure>
+            </ion-col>
+            
+            <ion-col style="text-align:center;">
+                <figure (click)="flipCard($event)">
+                    <img class="back" src="assets/images/back.png" alt="Back">
+                    <div class="searched-image">
+                        <img src="assets/images/5.png" alt="Back">
+                    </div>
+                </figure>
+            </ion-col>
+            
+            <ion-col style="text-align:center;">
+                <figure (click)="flipCard($event)">
+                    <img class="back" src="assets/images/back.png" alt="Back">
+                    <div class="searched-image">
+                        <img src="assets/images/6.png" alt="Back">
+                    </div>
+                </figure>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>

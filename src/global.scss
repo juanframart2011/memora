@@ -29,26 +29,18 @@ h2 {
     border: 2px solid #797575;
 }
 
-.buttons button{
-    margin-left: 0.5rem;
-}
-
-.wrapper{
-    text-align: center;
-    width: 100%;  
-}
 .time {
     color: #444;
     margin-bottom: 2px;
 }
 
-main {
+/*main {
   display: grid;
   grid-gap: 10px;
-  grid-template-columns: repeat(6, auto); /* Cambia 1fr por auto */
-  max-width: 1500px;
+  grid-template-columns: repeat(4, auto);
+  max-width: 1200px;
   margin: auto;
-}
+}*/
 
 figure,
 figure img {
@@ -156,6 +148,21 @@ button {
   display: grid;
   grid-gap: 30px;
   grid-template-columns: 2fr 1fr;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.custom-grid-head{
+  display: grid;
+  grid-gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.main{
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(4, auto);
   max-width: 1200px;
   margin: auto;
 }
