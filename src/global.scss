@@ -10,9 +10,10 @@ html, body, ion-app, ion-content {
   width: 100%;
   overflow: hidden;
 }
-
 body {
   background: linear-gradient(0deg, rgba(255,255,255,1) 10%, #f7e2e2 50%);
+  transform: rotate(270deg);
+  transform-origin: center;
 }
 
 h2 {
